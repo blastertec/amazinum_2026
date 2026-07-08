@@ -1,0 +1,31 @@
+=== server: uvicorn app:app --port 8000 ===
+INFO:     Started server process [617]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:53342 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53348 - "POST /predict HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [617]
+
+=== client: python example_request.py sample_digit.png ===
+POST http://127.0.0.1:8000/predict  (sample_digit.png)
+status: 200
+{
+  "digit": 7,
+  "confidence": 1.0,
+  "probabilities": {
+    "0": 0.0,
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.0,
+    "5": 0.0,
+    "6": 0.0,
+    "7": 1.0,
+    "8": 0.0,
+    "9": 0.0
+  }
+}
